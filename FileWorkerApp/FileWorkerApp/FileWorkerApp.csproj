@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="FileWorker.cs" />
     <Compile Include="IExecutable.cs" />
+    <Compile Include="Md5Executor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
