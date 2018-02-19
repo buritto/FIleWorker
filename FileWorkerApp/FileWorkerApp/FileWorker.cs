@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace FileWorkerApp
+﻿namespace FileWorkerApp
 {
     public class FileWorker
     {
@@ -15,8 +13,7 @@ namespace FileWorkerApp
 
         public bool Execute()
         {
-            var stream = new FileStream(Path, FileMode.Open);
-            return command.Execute(stream);
+            return command.Execute(Path);
         }
     }
 

@@ -1,9 +1,7 @@
-﻿using System.IO;
-
-namespace FileWorkerApp
+﻿namespace FileWorkerApp
 {
     public interface IExecutable
     {
-        bool Execute(FileStream file);
+        bool Execute(string path);
     }
 }

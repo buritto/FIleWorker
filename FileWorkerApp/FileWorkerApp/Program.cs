@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace FileWorkerApp
 {
@@ -10,6 +6,18 @@ namespace FileWorkerApp
     {
         static void Main(string[] args)
         {
+            var fw = new FileWorker(new Md5Executor());
+            var path = "C:\\test";
+            fw.IsRecursive = true;
+            var fileInDirectory = Directory.EnumerateFileSystemEntries(path);
+            foreach (var filePath in fileInDirectory)
+            {
+                if (Directory.Exists(filePath) && !fw.IsRecursive)
+                    continue;
+                fw.Path = filePath;
+                fw.Execute();
+            }
+
         }
     }
 }
