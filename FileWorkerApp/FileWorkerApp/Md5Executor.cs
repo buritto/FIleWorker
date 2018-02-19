@@ -85,7 +85,7 @@ namespace FileWorkerApp
         {
             using (var sw = new StreamWriter(defoultPathForSaveHash, true))
             {
-                hashPool.Select(pair => pair.Path + ":" + Convert.ToBase64String(pair.Hash)).ToList().ForEach(hash => sw.Write(hash));
+                hashPool.Select(pair => pair.Path + ":" + Convert.ToBase64String(pair.Hash)).ToList().ForEach(hash => sw.WriteLine(hash));
             }
             hashPool.Clear();
         }
@@ -97,7 +97,7 @@ namespace FileWorkerApp
             {
                 using (var sw = new StreamWriter(defoultPathForSaveHash, true))
                 {
-                    sw.Write(pathFolder + " " + hashFolder);
+                    sw.WriteLine(pathFolder + " " + hashFolder);
                     hashForFolderPool.Skip(hashForFolderPool.Count - sizeFolderObject).Select(pair => pair.Path + ":" + Convert.ToBase64String(pair.Hash)).ToList().ForEach(hash =>
                         sw.WriteLine(hash));
                 }
